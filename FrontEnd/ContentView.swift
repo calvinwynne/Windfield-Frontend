@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var progress = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ProgressView(value: 0, total: 100)
         }
         .padding()
     }
@@ -24,3 +29,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
