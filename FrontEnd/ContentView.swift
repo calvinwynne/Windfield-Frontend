@@ -18,10 +18,16 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            ProgressView(value: progress, total: 100)
+             ProgressView(value: progress, total: 100)
                 .onReceive(timer) { _ in
-                    progress = progress < 100 ? progress + 1 : 100
+                    progress = progress < 100 ? progress + 10 : 100
                 }
+            if progress == 100 {
+                Text("👍🏼")
+                ListItemRow(data:
+                    ListItem(id: 1, name: "Jane Doe")
+                )
+            }
         }
         .padding()
     }
@@ -32,4 +38,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
